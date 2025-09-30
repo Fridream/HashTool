@@ -79,7 +79,7 @@ dir /A:-D /B /S | findstr /v /i /l /e "\%HashFile%" >"%File%"
 for /f %%C in ('type "%File%" ^| find /c /v ""') do (
 	set "total=%%C" && set "count=0"
 )
-set "Back=Build_Back"
+set "Back=Clean"
 set "ProcessLineStart=Build_Line"
 goto WalkEachLine
 :Build_Line
@@ -89,8 +89,6 @@ set "Back=%ProcessLineFinish%"
 set /a count=%count%+1
 set /p=%count%/%total% Building "%File%" ...<nul
 goto WriteHash
-:Build_Back
-goto Clean
 
 :Check
 if not defined HashFile (
