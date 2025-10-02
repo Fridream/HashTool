@@ -92,8 +92,7 @@ goto WriteHash
 
 :Check
 if not defined HashFile (
-	set "HashFile=请输入校验文件名："
-	set /p HashFile=%HashFile% && echo.
+	set /p HashFile=请输入校验文件名：&& echo.
 )
 if not exist %HashFile% goto :EOF
 
